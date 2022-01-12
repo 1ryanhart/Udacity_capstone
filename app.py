@@ -11,6 +11,9 @@ def create_app(test_config=None):
   setup_db(app)
   CORS(app)
 
+  @app.route('/')
+  def home():
+      return 'Welcome to my app'
 
   @app.route('/actors', methods=['GET'])
   @requires_auth('get:actors')
