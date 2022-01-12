@@ -7,8 +7,8 @@ database_path = os.environ['DATABASE_URL']
 if database_path.startswith("postgres://"):
   database_path = database_path.replace("postgres://", "postgresql://", 1)
 
-db = SQLAlchemy()
 
+db = SQLAlchemy()
 '''
 setup_db(app)
     binds a flask application and a SQLAlchemy service
@@ -18,7 +18,7 @@ def setup_db(app, database_path=database_path):
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)
-    # db.create_all()
+    db.create_all()
 
 
 '''
