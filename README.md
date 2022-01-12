@@ -28,23 +28,23 @@ Auth0 is used for authentication. The following link is for the log in/register 
 https://dev-0m5bkb0u.us.auth0.com/authorize?audience=casting&response_type=token&client_id=JW2I9hBpyupIexfaiw3fxnOMrt02Z2kw&redirect_uri=http://192.168.0.61:8080
 
 Three roles have been created:
-####Casting Assistant
-- Can view actors and movies
-- Sample user:
- - castingassistant@fakeemail.com
- - Udacitypassword1!
-####Casting Director
-- All permissions a Casting Assistant has and… Add or delete an actor from the database Modify actors or movies
-- Sample user:
- - castingdirector@fakeemail.com
- - Udacitypassword1!
-####Executive Producer
-- All permissions a Casting Director has and… Add or delete a movie from the database
-- Sample user:
- - executiveproducer@fakeemail.com
- - Udacitypassword1!
+#### Casting Assistant
+Can view actors and movies
+Sample user:
+- castingassistant@fakeemail.com
+- Udacitypassword1!
+#### Casting Director
+All permissions a Casting Assistant has and… Add or delete an actor from the database Modify actors or movies
+Sample user:
+- castingdirector@fakeemail.com
+- Udacitypassword1!
+#### Executive Producer
+All permissions a Casting Director has and… Add or delete a movie from the database
+Sample user:
+- executiveproducer@fakeemail.com
+- Udacitypassword1!
 
-### endpoints
+### Endpoints
 #### GET /movies
 - Returns a list of movies objects
 - Request Arguments: Header with authorisation `get:movies`
