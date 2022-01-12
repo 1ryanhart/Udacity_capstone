@@ -4,7 +4,7 @@
 
 This project is the final project for the Udacity Full Stack Web Developer nanodegree.
 
-### UL location of hosted API
+### URL location of hosted API
 
 The app is hosted on Heroku at this link https://capstone1ryanhart.herokuapp.com/
 
@@ -176,7 +176,7 @@ Sample user:
 - Modifies an existing actor to the given name, age and gender
 - Request Arguments: actor id, name, age, gender, header with authorisation `patch:actors`
 - Returns the edited actor object and success value  
-- Sample: `curl -X PATCH -H 'Content-Type: application/json' -H "Authorization: Bearer <ACCESS TOKEN>" -d '{"name": "John Doe", "age": "30", "gender": "male"}' http://192.168.0.61:8080/actors/2`
+- Sample: `curl -X PATCH -H 'Content-Type: application/json' -H "Authorization: Bearer <ACCESS TOKEN>" -d '{"name": "John Doe", "age": "30", "gender": "male"}' https://capstone1ryanhart.herokuapp.com/actors/2`
 ```
 {
   "edited":
