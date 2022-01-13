@@ -49,9 +49,9 @@ Sample user:
 
 ### Endpoints
 #### GET /movies
-- Returns a list of movies objects
+- Returns a list of movies objects paginated in groups of 10. To select page number, pass URL argument 'page'. If no page argument is passed, the page number defaults to 1
 - Request Arguments: Header with authorisation `get:movies`
-- Sample: `curl -H "Authorization: Bearer <ACCESS TOKEN>" https://capstone1ryanhart.herokuapp.com/movies`
+- Sample: `curl -H "Authorization: Bearer <ACCESS TOKEN>" https://capstone1ryanhart.herokuapp.com/movies?page=1`
 ``` {
   "movies": [
     {
@@ -69,9 +69,9 @@ Sample user:
 }
 ```
 #### GET /actors
-- Returns a list of actor objects
+- Returns a list of actor objects paginated in groups of 10. To select page number, pass URL argument 'page'. If no page argument is passed, the page number defaults to 1
 - Request Arguments: Header with authorisation `get:actors`
-- Sample: `curl -H "Authorization: Bearer <ACCESS TOKEN>" https://capstone1ryanhart.herokuapp.com/actors`
+- Sample: `curl -H "Authorization: Bearer <ACCESS TOKEN>" https://capstone1ryanhart.herokuapp.com/actors?page=1`
 ``` {
   "actors": [
     {

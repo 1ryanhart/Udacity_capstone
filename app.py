@@ -5,11 +5,25 @@ from flask_cors import CORS
 from models import setup_db, Movie, Actor
 from auth import AuthError, requires_auth
 
+OBJECTS_PER_PAGE = 10
+
 def create_app(test_config=None):
   # create and configure the app
   app = Flask(__name__)
   setup_db(app)
   CORS(app)
+
+  # This function paginates the objects (can be used for either actors or movies) /
+  # pagination has been added for GET /movies and GET /actors
+  def paginate_selection(request, selection):
+    page = request.args.get("page", 1, type=int)
+    start = (page - 1) * OBJECTS_PER_PAGE
+    end = start + OBJECTS_PER_PAGE
+
+    objects = [object.format() for object in selection]
+    current_objects = objects[start:end]
+
+    return current_objects
 
   @app.route('/')
   def home():
@@ -20,11 +34,12 @@ def create_app(test_config=None):
   def get_actors(payload):
       actors = []
       actors = Actor.query.all()
+      formatted_actors = paginate_selection(request, actors)
 
       if len(actors) == 0:
           abort(404)
 
-      formatted_actors = [actor.format() for actor in actors]
+      # formatted_actors = [actor.format() for actor in actors]
       return jsonify(
       {
         'success': True,
@@ -107,11 +122,12 @@ def create_app(test_config=None):
   def get_movies(payload):
       movies = []
       movies = Movie.query.all()
+      formatted_movies = paginate_selection(request, movies)
 
       if len(movies) == 0:
           abort(404)
 
-      formatted_movies = [movie.format() for movie in movies]
+      # formatted_movies = [movie.format() for movie in movies]
       return jsonify(
       {
         'success': True,
