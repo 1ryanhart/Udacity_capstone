@@ -52,7 +52,7 @@ def create_app(test_config=None):
             'success': True,
             'actor': new_actor.format()
           }), 200
-      except:
+      except Exception:
           abort(422)
 
   @app.route('/actors/<int:id>', methods=['DELETE'])
@@ -99,7 +99,7 @@ def create_app(test_config=None):
             'success': True,
             'edited': actor.format()
           }), 200
-      except:
+      except Exception:
           abort(422)
 
   @app.route('/movies', methods=['GET'])
@@ -138,7 +138,7 @@ def create_app(test_config=None):
             'success': True,
             'movie': new_movie.format()
           }), 200
-      except:
+      except Exception:
           abort(422)
 
   @app.route('/movies/<int:id>', methods=['DELETE'])
@@ -182,7 +182,7 @@ def create_app(test_config=None):
             'success': True,
             'edited': movie.format()
           }), 200
-      except:
+      except Exception:
           abort(422)
 
 # Error Handling
